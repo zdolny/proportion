@@ -1,9 +1,13 @@
 import React from 'react';
+import CrossMultiplicationForm from './CrossMultiplicationForm';
 
 export default class App extends React.Component {
   render() {
     return (
-      <h1>Proportion</h1>
+      <main>
+        <h1>Cross-multiplication</h1>
+        <CrossMultiplicationForm />
+      </main>
     )
   }
 }
