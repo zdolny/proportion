@@ -2,41 +2,24 @@ import React from 'react';
 
 export default class CrossMultiplicationForm extends React.Component {
   state = {
-    numbers: [1, 2, 3, 4]
+    numeratorLeft: '',
+    numeratorRight: '',
+    denumeratorLeft: '',
+    denumeratorRight: '',
   };
   handleChangeNumber = (e) => {
     const inputName = e.target.name;
-    let inputIndex = undefined;
-    switch (inputName) {
-      case 'topLeft':
-        inputIndex = 0;
-        break;
-      case 'topRight':
-        inputIndex = 1;
-        break;
-      case 'bottomLeft':
-        inputIndex = 2;
-        break;
-      case 'bottomRight':
-        inputIndex = 3;
-        break;
-    }
-    const newNumber = (e.target.validity.valid) ? e.target.value : this.state.numbers[inputIndex];
-
-    this.setState(prevState => {
-      const numbers = this.state.numbers.map((number, i) => {
-        if (i === inputIndex) {
-          return Number(newNumber);
-        }
-        return number;
-      });
-      return {
-        numbers,
-      };
-    });
+    const newNumber = (e.target.validity.valid) ? e.target.value : this.state[inputName];
+    this.setState(() => ({
+      [inputName]: newNumber
+    }));
   }
   handleCrossMultiplication = (e) => {
     e.preventDefault();
+    const result = this.state.numeratorRight * this.state.denumeratorLeft / this.state.numeratorLeft;
+    this.setState(() => ({
+      denumeratorRight: result
+    }));
   }
   render() {
     return (
@@ -44,37 +27,40 @@ export default class CrossMultiplicationForm extends React.Component {
         <div>
           <input
             type="text"
-            pattern="[0-9]*"
-            name="topLeft"
+            pattern="[0-9.]*"
+            name="numeratorLeft"
             data-lpignore="true"
-            value={this.state.numbers[0]}
+            placeholder="Enter a number"
+            value={this.state.numeratorLeft}
             onChange={this.handleChangeNumber}
           />
           <input
             type="text"
-            pattern="[0-9]*"
-            name="topRight"
+            pattern="[0-9.]*"
+            name="numeratorRight"
             data-lpignore="true"
-            value={this.state.numbers[1]}
+            placeholder="Enter a number"
+            value={this.state.numeratorRight}
             onChange={this.handleChangeNumber}
           />
         </div>
         <div>
           <input
             type="text"
-            pattern="[0-9]*"
-            name="bottomLeft"
+            pattern="[0-9.]*"
+            name="denumeratorLeft"
             data-lpignore="true"
-            value={this.state.numbers[2]}
+            placeholder="Enter a number"
+            value={this.state.denumeratorLeft}
             onChange={this.handleChangeNumber}
           />
           <input
             type="text"
-            pattern="[0-9]*"
-            name="bottomRight"
+            name="denumeratorRight"
             data-lpignore="true"
-            value={this.state.numbers[3]}
-            onChange={this.handleChangeNumber}
+            placeholder="x"
+            value={this.state.denumeratorRight}
+            disabled
           />
         </div>
         <button>Calculate</button>
