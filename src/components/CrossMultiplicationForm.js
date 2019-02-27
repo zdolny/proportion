@@ -9,10 +9,12 @@ export default class CrossMultiplicationForm extends React.Component {
   };
   handleChangeNumber = (e) => {
     const inputName = e.target.name;
-    const newNumber = (e.target.validity.valid) ? e.target.value : this.state[inputName];
-    this.setState(() => ({
-      [inputName]: newNumber
-    }));
+    if (!e.target.validity.patternMismatch) {
+      const newNumber = e.target.value;
+      this.setState(() => ({
+        [inputName]: newNumber
+      }));
+    }
   }
   handleCrossMultiplication = (e) => {
     e.preventDefault();
@@ -27,7 +29,7 @@ export default class CrossMultiplicationForm extends React.Component {
         <div>
           <input
             type="text"
-            pattern="[0-9.]*"
+            pattern="^[0-9]+\.?[0-9]*$"
             name="numeratorLeft"
             data-lpignore="true"
             placeholder="Enter a number"
@@ -36,7 +38,7 @@ export default class CrossMultiplicationForm extends React.Component {
           />
           <input
             type="text"
-            pattern="[0-9.]*"
+            pattern="^[0-9]+\.?[0-9]*$"
             name="numeratorRight"
             data-lpignore="true"
             placeholder="Enter a number"
@@ -47,7 +49,7 @@ export default class CrossMultiplicationForm extends React.Component {
         <div>
           <input
             type="text"
-            pattern="[0-9.]*"
+            pattern="^[0-9]+\.?[0-9]*$"
             name="denumeratorLeft"
             data-lpignore="true"
             placeholder="Enter a number"
