@@ -25,10 +25,11 @@ export default class CrossMultiplicationForm extends React.Component {
   }
   render() {
     return (
-      <form onSubmit={this.handleCrossMultiplication}>
-        <div>
+      <form onSubmit={this.handleCrossMultiplication} className="form">
+        <div className="input-wrap">
           <input
             type="text"
+            className="uk-input"
             pattern="^[0-9]+\.?[0-9]*$"
             name="numeratorLeft"
             data-lpignore="true"
@@ -36,8 +37,11 @@ export default class CrossMultiplicationForm extends React.Component {
             value={this.state.numeratorLeft}
             onChange={this.handleChangeNumber}
           />
+        </div>
+        <div className="input-wrap">
           <input
             type="text"
+            className="uk-input"
             pattern="^[0-9]+\.?[0-9]*$"
             name="numeratorRight"
             data-lpignore="true"
@@ -46,9 +50,10 @@ export default class CrossMultiplicationForm extends React.Component {
             onChange={this.handleChangeNumber}
           />
         </div>
-        <div>
+        <div className="input-wrap">
           <input
             type="text"
+            className="uk-input"
             pattern="^[0-9]+\.?[0-9]*$"
             name="denumeratorLeft"
             data-lpignore="true"
@@ -56,8 +61,11 @@ export default class CrossMultiplicationForm extends React.Component {
             value={this.state.denumeratorLeft}
             onChange={this.handleChangeNumber}
           />
+        </div >
+        <div className="input-wrap">
           <input
             type="text"
+            className="uk-input"
             name="denumeratorRight"
             data-lpignore="true"
             placeholder="x"
@@ -65,7 +73,7 @@ export default class CrossMultiplicationForm extends React.Component {
             disabled
           />
         </div>
-        <button>Calculate</button>
+        <button className="uk-button uk-button-default">Calculate</button>
       </form>
     )
   }

@@ -5,7 +5,12 @@ export default class App extends React.Component {
   render() {
     return (
       <main>
-        <h1>Rule of Three / Cross-multiplication</h1>
+        <header className="header container">
+          <h1 class="uk-h2">
+            Rule of Three<br/>
+            Cross-multiplication
+          </h1>
+        </header>
         <CrossMultiplicationForm />
       </main>
     )
