@@ -82,8 +82,8 @@ export default class CrossMultiplicationForm extends React.Component {
             disabled
           />
         </div>
-        <button onClick={this.handleReset} className="uk-button uk-button-default">Reset</button>
-        <button className="uk-button uk-button-primary">Calculate</button>
+        <button type="button" onClick={this.handleReset} className="uk-button uk-button-default">Reset</button>
+        <button type="submit" className="uk-button uk-button-primary">Calculate</button>
       </form>
     )
   }
