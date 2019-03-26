@@ -16,6 +16,15 @@ export default class CrossMultiplicationForm extends React.Component {
       }));
     }
   }
+  handleReset = (e) => {
+    e.preventDefault();
+    this.setState(() => ({
+      numeratorLeft: '',
+      numeratorRight: '',
+      denumeratorLeft: '',
+      denumeratorRight: '',
+    }));
+  }
   handleCrossMultiplication = (e) => {
     e.preventDefault();
     const result = this.state.numeratorRight * this.state.denumeratorLeft / this.state.numeratorLeft;
@@ -61,7 +70,7 @@ export default class CrossMultiplicationForm extends React.Component {
             value={this.state.denumeratorLeft}
             onChange={this.handleChangeNumber}
           />
-        </div >
+        </div>
         <div className="input-wrap">
           <input
             type="text"
@@ -73,7 +82,8 @@ export default class CrossMultiplicationForm extends React.Component {
             disabled
           />
         </div>
-        <button className="uk-button uk-button-default">Calculate</button>
+        <button onClick={this.handleReset} className="uk-button uk-button-default">Reset</button>
+        <button className="uk-button uk-button-primary">Calculate</button>
       </form>
     )
   }

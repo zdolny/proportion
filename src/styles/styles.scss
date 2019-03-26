@@ -8,7 +8,7 @@
 
 .header {
   text-align: center;
-  margin: 1em 0 0;
+  margin: 1em auto 0;
 }
 
 .form {
@@ -27,6 +27,7 @@
     width: 100%;
   }
   button {
-    margin: 8px auto;
+    margin: 24px 0;
+    padding: 0;
   }
 }
