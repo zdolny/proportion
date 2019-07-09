@@ -28,9 +28,11 @@ export default class CrossMultiplicationForm extends React.Component {
   handleCrossMultiplication = (e) => {
     e.preventDefault();
     const result = this.state.numeratorRight * this.state.denumeratorLeft / this.state.numeratorLeft;
-    this.setState(() => ({
-      denumeratorRight: result
-    }));
+    if(!isNaN(result)) {
+      this.setState(() => ({
+        denumeratorRight: result
+      }));
+    }
   }
   render() {
     return (
