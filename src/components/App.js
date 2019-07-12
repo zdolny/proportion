@@ -6,10 +6,8 @@ export default class App extends React.Component {
     return (
       <main>
         <header className="header container">
-          <h1 class="uk-h2">
-            Rule of Three<br/>
-            Cross-multiplication
-          </h1>
+          <h1>Rule of Three Calculator</h1>
+          <p>Find the unknown number based on proportions</p>
         </header>
         <CrossMultiplicationForm />
       </main>
