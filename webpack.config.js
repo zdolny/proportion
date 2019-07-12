@@ -7,7 +7,7 @@ module.exports = (env) => {
     mode: environment,
     entry: './src/index.js',
     output: {
-      path: path.join(__dirname, 'public'),
+      path: path.join(__dirname, 'docs'),
       filename: 'bundle.js'
     },
     module: {
@@ -26,7 +26,7 @@ module.exports = (env) => {
     },
     devtool: 'cheap-module-eval-source-map',
     devServer: {
-      contentBase: path.join(__dirname, 'public')
+      contentBase: path.join(__dirname, 'docs')
     }
   }
 };
