@@ -1,4 +1,4 @@
-@import 'base';
+@import "base";
 
 .container {
   max-width: 960px;
@@ -25,6 +25,9 @@
   }
   input {
     width: 100%;
+    &:disabled {
+      color: #666;
+    }
   }
   button {
     margin: 24px 0;
